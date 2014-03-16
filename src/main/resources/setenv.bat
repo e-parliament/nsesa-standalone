@@ -12,6 +12,4 @@
 @REM See the Licence for the specific language governing permissions and limitations under the Licence.
 @REM
 
-JAVA_OPTS="-server -Xmx512m -Xms128m -XX:PermSize=128m"
-
-CATALINA_OPTS="${JAVA_OPTS}"
+set CATALINA_OPTS=-Dfile.encoding=UTF-8 -Xms128m -Xmx512m -XX:PermSize=128m

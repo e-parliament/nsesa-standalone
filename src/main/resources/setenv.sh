@@ -12,6 +12,4 @@
 # See the Licence for the specific language governing permissions and limitations under the Licence.
 #
 
-JAVA_OPTS="-server -Xmx512m -Xms128m -XX:PermSize=128m"
-
-CATALINA_OPTS="${JAVA_OPTS}"
+CATALINA_OPTS="-server -Xmx512m -Xms128m -XX:PermSize=128m"
