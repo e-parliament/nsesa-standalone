@@ -1,0 +1,78 @@
+<!--
+
+    Copyright 2013 European Parliament
+
+    Licensed under the EUPL, Version 1.1 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence");
+    You may not use this work except in compliance with the Licence.
+    You may obtain a copy of the Licence at:
+
+    http://joinup.ec.europa.eu/software/page/eupl
+
+    Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the Licence for the specific language governing permissions and limitations under the Licence.
+
+-->
+<assembly>
+    <id>distribution</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/apache-tomcat-${tomcat.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>**/webapps/docs/**</exclude>
+                <exclude>**/webapps/examples/**</exclude>
+                <exclude>**/webapps/host-manager/**</exclude>
+                <exclude>**/webapps/manager/**</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <outputDirectory>/webapps</outputDirectory>
+            <directory>${basedir}/../nsesa-editor-an/target</directory>
+            <includes>
+                <include>editor.war</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <outputDirectory>/bin</outputDirectory>
+            <directory>${basedir}/src/main/resources/</directory>
+            <includes>
+                <include>setenv.sh</include>
+                <include>setenv.bat</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <outputDirectory>/webapps</outputDirectory>
+            <directory>${basedir}/../nsesa-server-impl/target</directory>
+            <includes>
+                <include>services.war</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <!--<dependencySets>
+        <dependencySet>
+            <outputDirectory>/webapps/diff</outputDirectory>
+            <includes>
+                <include>${project.groupId}:nsesa-diff</include>
+            </includes>
+            <unpack>true</unpack>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/webapps/services</outputDirectory>
+            <includes>
+                <include>${project.groupId}:server-demo-impl</include>
+            </includes>
+            <unpack>true</unpack>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/webapps/editor</outputDirectory>
+            <includes>
+                <include>${project.groupId}:editor-an</include>
+            </includes>
+            <unpack>true</unpack>
+        </dependencySet>
+    </dependencySets>-->
+</assembly>
